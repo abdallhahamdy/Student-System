@@ -19,6 +19,7 @@ public class Student {
     @Column(name = "full_name")
     private String FullName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private Gender gender;
 
