@@ -1,7 +1,7 @@
 <table class="table table-striped table-dark">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">#ID</th>
       <th scope="col">Full Name</th>
       <th scope="col">Phone Number</th>
       <th scope="col">Gender</th>
@@ -11,13 +11,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Abdallha Hamdy</td>
-      <td>01110495598</td>
-      <td>Male</td>
-      <td>24</td>
-      <td>Giza</td>
+    <tr *ngFor="let stus of students">
+      <th scope="row">{{stus.id}}</th>
+      <td>{{stus.fullName}}</td>
+      <td>{{stus.phone}}</td>
+      <td>{{stus.gender}}</td>
+      <td>{{stus.age}}</td>
+      <td>{{stus.address}}</td>
       <td>
         <button class="btn btn-success" routerLink="/control">Update</button>
         <button class="btn btn-primary">Delete</button>
