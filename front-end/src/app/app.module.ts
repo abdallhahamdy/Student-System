@@ -17,6 +17,7 @@ import { OptionsComponent } from './components/options/options.component';
     RegisterComponent,
     StudentsComponent,
     OptionsComponent
+
   ],
   imports: [
     BrowserModule,
