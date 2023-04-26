@@ -8,6 +8,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'control', component: OptionsComponent },
+  { path: 'students', component: StudentsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -21,7 +28,8 @@ import { OptionsComponent } from './components/options/options.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
