@@ -10,13 +10,14 @@ import { StudentsComponent } from './components/students/students.component';
 import { OptionsComponent } from './components/options/options.component';
 import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterActivatedServiceService } from './services/router-activated-service.service';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'control', component: OptionsComponent },
-  { path: 'students', component: StudentsComponent },
-  { path: '', component: StudentsComponent },
-  { path: '**', component: StudentsComponent }
+  {path: 'control', component: OptionsComponent,canActivate: [RouterActivatedServiceService]},
+  {path: 'students', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
+  {path: '', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
+  {path: '**', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
 ];
 
 @NgModule({
