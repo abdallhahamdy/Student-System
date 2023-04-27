@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isAuthenticaterUser(): boolean{
-    return this.isAuthenticaterUser();
+    return this.loginService.isLogin();
   }
 
 }
