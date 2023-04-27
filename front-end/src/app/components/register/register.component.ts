@@ -21,4 +21,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  OnSubmit() {
+    console.log(this.logInFormGroup.get('admin')?.value.userName);
+    console.log(this.logInFormGroup.get('admin')?.value.password);
+  }
+
 }
