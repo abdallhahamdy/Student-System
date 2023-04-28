@@ -32,4 +32,9 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    // http://localhost:8080/system/students
+    @PostMapping("students")
+    public Student saveStudent(@RequestBody Student student){
+        return studentService.saveStudent(student);
+    }
 }
