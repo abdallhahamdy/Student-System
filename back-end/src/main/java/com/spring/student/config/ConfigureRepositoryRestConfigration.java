@@ -20,5 +20,5 @@ public class ConfigureRepositoryRestConfigration implements RepositoryRestConfig
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Student.class);
     }
-    
+
 }
