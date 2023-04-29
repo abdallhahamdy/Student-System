@@ -4,6 +4,7 @@ import com.spring.student.dao.StudentRepository;
 import com.spring.student.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -29,5 +30,9 @@ public class StudentService {
 
     public Student editStudent(Student student){
         return studentRepository.save(student);
+    }
+
+    public void removeStudent(@RequestParam Long id){
+        studentRepository.deleteById(id);
     }
 }

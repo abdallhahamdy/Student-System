@@ -44,4 +44,9 @@ public class StudentController {
         student.setId(id);
         return studentService.saveStudent(student);
     }
+
+    @DeleteMapping("students")
+    public void removeStudent(@RequestParam Long id){
+        studentService.removeStudent(id);
+    }
 }
