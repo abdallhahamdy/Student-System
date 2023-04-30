@@ -24,8 +24,28 @@ export class OptionsComponent implements OnInit {
     })
   }
 
-  done() {
+  getUserName() {
+    return this.studentGroub.get("student")!.value.userName;
+  }
+  getAge() {
+    return this.studentGroub.get("student")!.value.age;
+  }
+  getAddress() {
+    return this.studentGroub.get("student")!.value.address;
+  }
+  getPhone() {
+    return this.studentGroub.get("student")!.value.phone;
+  }
+  getGender() {
+    return this.studentGroub.get("student")!.value.gender;
+  }
 
+  done() {
+    console.log(this.getUserName())
+    console.log(this.getAge())
+    console.log(this.getAddress())
+    console.log(this.getPhone())
+    console.log(this.getGender())
   }
 
 }
