@@ -23,8 +23,5 @@ export class StudentsComponent implements OnInit {
     );
   }
 
-  deleteStudemt(id: number) {
-    
-  }
 
 }
