@@ -22,6 +22,10 @@ export class StudentService {
     //return this.httpStudent.delete(this.urlStudents + "?id=" + id)
     return this.httpStudent.delete(this.urlStudents + `?id=${id}`)
   }
+
+  addStudent(student: Student){
+    return this.httpStudent.post(this.urlStudents, student);
+  }
 }
 
 

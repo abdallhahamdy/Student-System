@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { Student } from 'src/app/model/student';
+import { StudentService } from 'src/app/services/student.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-options',
@@ -10,16 +13,16 @@ export class OptionsComponent implements OnInit {
 
   studentGroub!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private serviceStudent: StudentService, private router: Router) { }
 
   ngOnInit(): void {
     this.studentGroub = this.formBuilder.group({
       student: this.formBuilder.group({
-        userName: ['fullname'],
-        age: ['age'],
-        address: ['address'],
-        phone: ['phone'],
-        gender: ["gender"]
+        userName: [''],
+        age: [''],
+        address: [''],
+        phone: [''],
+        gender: [""]
       })
     })
   }
@@ -41,6 +44,12 @@ export class OptionsComponent implements OnInit {
   }
 
   done() {
+    const stu = new Student(-1, this.getUserName(), this.getGender(), this.getAge(), this.getAddress(), this.getPhone() );
+    this.serviceStudent.addStudent(stu).subscribe(
+      Response => {
+        this.router.navigateByUrl("/students");
+      }
+    )
     console.log(this.getUserName())
     console.log(this.getAge())
     console.log(this.getAddress())
