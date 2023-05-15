@@ -32,6 +32,11 @@ export class StudentService {
       map(response => response)
     );
   }
+
+  editStudent(student: Student, id: number){
+    return this.httpStudent.put(this.urlStudents + ` ?id=${id}`, student);
+  }
+  
 }
 
 
