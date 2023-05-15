@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { Student } from 'src/app/model/student';
 import { StudentService } from 'src/app/services/student.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-options',
@@ -12,17 +12,30 @@ import {Router} from '@angular/router';
 export class OptionsComponent implements OnInit {
 
   studentGroub!: FormGroup;
+  id!: number;
+  myStudent: Student = new Student(0, "", "" , "", "", "");
 
-  constructor(private formBuilder: FormBuilder, private serviceStudent: StudentService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,
+    private serviceStudent: StudentService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = +this.route.snapshot.paramMap.get("id")!;
+    alert(this.id);
+    if (this.id != 0) {
+      this.serviceStudent.getStudent(this.id).subscribe(
+        response =>
+          this.myStudent = response
+      )
+    }
     this.studentGroub = this.formBuilder.group({
       student: this.formBuilder.group({
         userName: [''],
         age: [''],
         address: [''],
         phone: [''],
-        gender: [""]
+        gender: ['']
       })
     })
   }

@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent , canActivate: [LoginActivatedService]},
   {path: 'content', component: ContentComponent, canActivate: [LoginActivatedService]},
   {path: 'control', component: OptionsComponent,canActivate: [RouterActivatedServiceService]},
+  {path: 'control/:id', component: OptionsComponent,canActivate: [RouterActivatedServiceService]},
   {path: 'students', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
   {path: '', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
   {path: '**', component: StudentsComponent,canActivate: [RouterActivatedServiceService]},
